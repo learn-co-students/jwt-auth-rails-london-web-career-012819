@@ -10,10 +10,23 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2018_08_29_004747) do
+ActiveRecord::Schema.define(version: 2019_03_25_141030) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
+
+  create_table "heros", force: :cascade do |t|
+    t.string "name"
+    t.integer "fast_attack"
+    t.integer "heavy_attack"
+    t.integer "speed"
+    t.integer "strength"
+    t.integer "hit_points"
+    t.string "img_url"
+    t.integer "score"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
 
   create_table "users", force: :cascade do |t|
     t.string "username"
@@ -22,6 +35,18 @@ ActiveRecord::Schema.define(version: 2018_08_29_004747) do
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.string "bio", default: "I love flavortown, USA"
+  end
+
+  create_table "villains", force: :cascade do |t|
+    t.string "name"
+    t.integer "fast_attack"
+    t.integer "heavy_attack"
+    t.integer "speed"
+    t.integer "strength"
+    t.integer "hit_points"
+    t.string "img_url"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
   end
 
 end
